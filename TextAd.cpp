@@ -34,6 +34,22 @@ int main()
 
 	cout << rooms[Playerx][Playery];
 	
+	int keyX = rand() % mapWidth;
+	int keyY = rand() % mapHeight;
+
+	int doorX = rand() % mapWidth;
+	int doorY = rand() % mapHeight;
+	
+	if (Playerx == doorX && Playery == doorY)
+	{
+		cout << "The door is here but it is locked." << endl << endl;
+	}
+	
+	if (Playerx == keyX && Playery == keyY)
+	{
+		cout << "The Key is here" << endl << endl;
+	}
+	
 	while (!isDone)
 	{
 		
@@ -65,6 +81,16 @@ int main()
 		}
 
 		cout << endl<< rooms[Playerx][Playery];
+		
+		if (Playerx == doorX && Playery == doorY)
+		{
+			cout << "The door is here but it is locked." << endl << endl;
+		}
+
+		if (Playerx == keyX && Playery == keyY)
+		{
+			cout << "The Key is here" << endl << endl;
+		}
 
 			
 	

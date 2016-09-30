@@ -6,7 +6,8 @@ using namespace std;
 
 int main()
 {
-	int n;
+	bool hasKey = false;
+	
 	srand(time(NULL));
 
 	string rooms[4][3];
@@ -14,7 +15,7 @@ int main()
 	int mapWidth = 4;
 	int mapHeight = 3;
 
-	rooms[0][0] = "IHOP \n Here you can get pancakes 24/7";
+	rooms[0][0] = "IHOP \n Here you can get pancakes 24/7 ";
 	rooms[1][0] = "Cliffside \n A tall cliff to the north block your way further";
 	rooms[1][1] = "Grassy Field \n You are standing in a grass field";
 	rooms[1][2] = "River";
@@ -32,13 +33,16 @@ int main()
 
 	bool isDone = false;
 
-	cout << rooms[Playerx][Playery];
+	cout << rooms[Playerx][Playery] << endl << endl;
+
 	
+
 	int keyX = rand() % mapWidth;
 	int keyY = rand() % mapHeight;
 
 	int doorX = rand() % mapWidth;
 	int doorY = rand() % mapHeight;
+
 	
 	if (Playerx == doorX && Playery == doorY)
 	{
@@ -47,11 +51,16 @@ int main()
 	
 	if (Playerx == keyX && Playery == keyY)
 	{
+		
 		cout << "The Key is here" << endl << endl;
+		cout << "You picked up the key!" << endl << endl;
+		hasKey = true;
+
 	}
 	
 	while (!isDone)
 	{
+		
 		
 		cout << endl << "[N]orth, [S]outh, [E]ast, [W]est" << endl;
 		char choice;
@@ -80,25 +89,47 @@ int main()
 			cout << "You can not go that way!";
 		}
 
-		cout << endl<< rooms[Playerx][Playery];
-		
-		if (Playerx == doorX && Playery == doorY)
+		if (hasKey == false)
 		{
-			cout << "The door is here but it is locked." << endl << endl;
+			cout << endl << rooms[Playerx][Playery] << endl << endl;
 		}
+		else if (hasKey == true)
+		{
+			cout << endl << rooms[Playerx][Playery] << endl << endl;
+			cout << "You are carrying a key!";
+		}
+		
+
+		
+		
+
 
 		if (Playerx == keyX && Playery == keyY)
 		{
 			cout << "The Key is here" << endl << endl;
+			cout << "You picked up the key!" << endl << endl;
+			hasKey = true;
 		}
 
-			
+		if (Playerx == doorX && Playery == doorY && hasKey == false)
+		{
+			cout << "The door is here but it is locked." << endl << endl;
+
+		}
+
+		else if (Playerx == doorX && Playery == doorY && hasKey == true)
+		{
+			cout << "The door is here and You have unlocked the door!!!" << endl << endl;
+			isDone = true;
+		}
 	
+		
 	
 	}
 
-
+	cout << "YOU WIN!!!" << endl;
 	return 0;
+
 
 	
 }

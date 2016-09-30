@@ -27,11 +27,49 @@ int main()
 	rooms[0][1] = "Village Entrance \n A Sleepy village sits, barely anbody wandering around";
 	rooms[0][2] = "Village Inn \n You could order some tasty pancakes here.";
 
-	cout << "Enter an X and Y index!" << endl;
-	int x;
-	int y;
-	cin >> x >> y;
-	cout << rooms[x][y] << endl;
+	int Playerx = 1;
+	int Playery = 1;
+
+	bool isDone = false;
+
+	cout << rooms[Playerx][Playery];
+	
+	while (!isDone)
+	{
+		
+		cout << endl << "[N]orth, [S]outh, [E]ast, [W]est" << endl;
+		char choice;
+		cout << "Enter what direction you want to go: ";
+		cin >> choice;
+		choice = tolower(choice);
+
+		if (choice == 'n')
+		{
+			Playery--;
+		}
+		else if (choice == 's')
+		{
+			Playery++;
+		}
+		else if (choice == 'e')
+		{
+			Playerx++;
+		}
+		else if(choice == 'w')
+		{
+			Playerx--;
+		}
+		else
+		{
+			cout << "Invalid choice";
+		}
+
+		cout << endl<< rooms[Playerx][Playery];
+
+			
+	
+	
+	}
 
 
 	return 0;

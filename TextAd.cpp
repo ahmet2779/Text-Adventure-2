@@ -43,25 +43,25 @@ int main()
 		cin >> choice;
 		choice = tolower(choice);
 
-		if (choice == 'n')
+		if (choice == 'n' && Playery > 0 )
 		{
 			Playery--;
 		}
-		else if (choice == 's')
+		else if (choice == 's' && Playery < ( mapHeight - 1 ) )
 		{
 			Playery++;
 		}
-		else if (choice == 'e')
+		else if (choice == 'e' && Playerx < ( mapWidth - 1 ) )
 		{
 			Playerx++;
 		}
-		else if(choice == 'w')
+		else if(choice == 'w' && Playerx > 0)
 		{
 			Playerx--;
 		}
 		else
 		{
-			cout << "Invalid choice";
+			cout << "You can not go that way!";
 		}
 
 		cout << endl<< rooms[Playerx][Playery];
